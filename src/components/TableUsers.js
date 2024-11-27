@@ -168,7 +168,7 @@ const TableUsers = (props) => {
         <>
         <div className='my-3 add-new d-sm-flex'> 
               <span ><h3>List User</h3></span>
-              <div className='group-btns'>
+              <div className='group-btns mt-sm-0 mt-2'>
                 <label className='btn btn-warning' htmlFor="test"><i className='fa-solid fa-file-import'></i> Import</label>
                 <input id="test" type='file' hidden
                 onChange={(event) => handleImportCSV(event)} />
@@ -189,7 +189,8 @@ const TableUsers = (props) => {
         <div className='col-12 col-sm-4 my-3'>
             <input className='form-control' placeholder='Search by email' onChange={(event) => {handleSearch(event)}}/>
         </div>
-         <Table col- striped bordered hover>
+         <div className='customize-table'>
+            <Table col- striped bordered hover >
             <thead>
                 <tr>
                 <th>
@@ -239,7 +240,7 @@ const TableUsers = (props) => {
                 })
                 }
             </tbody>
-        </Table>
+        </Table></div>
         <ReactPaginate
             breakLabel="..."
             nextLabel=">"

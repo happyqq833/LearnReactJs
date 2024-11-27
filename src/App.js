@@ -7,15 +7,17 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useContext, useEffect } from 'react';
 import { UserContext } from './context/userContext';
 import AppRouters from './routes/appRouters';
+import { useSelector } from 'react-redux';
 
 function App() {
 
-  const {user, loginContext} = useContext(UserContext);
-  useEffect(() => {
-    if(localStorage.getItem("token")){
-        loginContext(localStorage.getItem("email"), localStorage.getItem("token"));
-    }
-  })
+  const dataUserRedux = useSelector(state => state.user.account);
+
+  // useEffect(() => {
+  //   if(localStorage.getItem("token")){
+  //       loginContext(localStorage.getItem("email"), localStorage.getItem("token"));
+  //   }
+  // })
   return (
     <>
       <div className='app-container'>

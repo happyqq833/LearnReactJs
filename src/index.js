@@ -5,16 +5,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { BrowserRouter } from 'react-router-dom';
-import { UserProvider } from './context/userContext';
+import store from './redux/store';
+import { Provider } from 'react-redux';
 
 ReactDOM.render(
+  <Provider store={store}>
   <React.StrictMode>
-    <UserProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </UserProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
+  </Provider>
+  ,
   document.getElementById('root')
 );
 
