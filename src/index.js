@@ -7,12 +7,15 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import { BrowserRouter } from 'react-router-dom';
 import store from './redux/store';
 import { Provider } from 'react-redux';
+import ErrorBoundary from './components/errorBoundary/error';
 
 ReactDOM.render(
   <Provider store={store}>
   <React.StrictMode>
       <BrowserRouter>
+      <ErrorBoundary>
         <App />
+      </ErrorBoundary>
       </BrowserRouter>
   </React.StrictMode>
   </Provider>

@@ -1,5 +1,5 @@
 import { isError } from "lodash";
-import { FETCH_USER_ERROR, FETCH_USER_SUCCESS, FETCH_USER_LOGIN, USER_LOGOUT } from "../actions/userAction";
+import { FETCH_USER_ERROR, FETCH_USER_SUCCESS, FETCH_USER_LOGIN, USER_LOGOUT, USER_REFRESH } from "../actions/userAction";
 
 const INITIAL_STATE = {
     account: {
@@ -49,6 +49,15 @@ const userReducer = (state = INITIAL_STATE, action) => {
                     email: '',
                     token: '',
                     auth: false
+                }
+            }
+        case USER_REFRESH: 
+            return{
+                ...state,
+                account: {
+                    email: localStorage.getItem('email'),
+                    token: localStorage.getItem('token'),
+                    auth: true
                 }
             }
         default: return state;
